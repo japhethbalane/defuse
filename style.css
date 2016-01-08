@@ -11,3 +11,13 @@ html, body {
 canvas {
 	display: block;
 }
+
+.timer {
+	height: 350px;
+	width: 350px;
+	border-radius: 50%;
+	border: 1px black solid;
+	position: absolute;
+	top: 15%;
+	left: 38%;
+}
