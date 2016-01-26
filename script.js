@@ -12,6 +12,16 @@ var BOMB = new Bomb(time);
 var buttonCount = 5;
 var buttons = [];
 
+generateButtons();
+
+function generateButtons() {
+	var angle = 360 / buttonCount;
+	var div = angle;
+	for (var i = 0; i < buttonCount; i++) {
+
+	}
+}
+
 function clearCanvas() {
 	context.fillStyle = "#000";
 	context.fillRect(0,0,canvas.width,canvas.height);
