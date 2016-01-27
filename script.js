@@ -46,12 +46,12 @@ function world() {
 function Bomb(time) {
 	this.x = canvas.width/2;
 	this.y = canvas.height/2;
-	this.radius = 200;
+	this.radius = 100;
 
 	this.drawBorder = function() {
 		context.beginPath();
 		context.arc(this.x, this.y, this.radius, Math.PI * 2, false);
-		context.strokeStyle = 'black';
+		context.strokeStyle = "#fff"
 		context.stroke();
 		context.fillStyle = "rgba(200,200,200,1)";
 		context.fill();
