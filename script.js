@@ -18,7 +18,7 @@ function generateButtons() {
 	var angle = 360 / buttonCount;
 	var div = angle;
 	for (var i = 0; i < buttonCount; i++) {
-
+		buttons.push(new Button());
 	}
 }
 
@@ -41,6 +41,9 @@ function randomBetween(min, max) {
 function world() {
 	clearCanvas();
 	BOMB.update().draw();
+	for (var i = 0; i < buttons.length; i++) {
+		buttons[i].update().draw();
+	}
 }
 
 function Bomb(time) {
@@ -64,6 +67,29 @@ function Bomb(time) {
 
 	this.draw = function() {
 		this.drawBorder();
+
+		return this;
+	}
+}
+
+function Button() {
+	this.x = canvas.width/3;
+	this.y = canvas.height/2;
+	this.radius =30;
+
+	this.update = function() {
+
+
+		return this;
+	}
+
+	this.draw = function() {
+		context.beginPath();
+		context.arc(this.x, this.y, this.radius, Math.PI * 2, false);
+		context.strokeStyle = "#fff"
+		context.stroke();
+		context.fillStyle = "rgba(200,200,200,1)";
+		context.fill();
 
 		return this;
 	}
