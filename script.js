@@ -17,8 +17,8 @@ generateButtons();
 function generateButtons() {
 	var angle = 360 / buttonCount;
 	var div = angle;
-	for (var i = 0; i < buttonCount; i++) {
-		buttons.push(new Button());
+	for (var i = 0; i < buttonCount; i++, angle += div) {
+		buttons.push(new Button(angle));
 	}
 }
 
@@ -27,12 +27,12 @@ function clearCanvas() {
 	context.fillRect(0,0,canvas.width,canvas.height);
 }
 
-// function color() {
-//     var r = Math.random() * 255 >> 1;
-//     var g = Math.random() * 255 >> 1;
-//     var b = Math.random() * 255 >> 1;
-//     return 'rgb('+r+','+g+','+b+')';
-// }
+function color() {
+    var r = Math.random() * 255 >> 1;
+    var g = Math.random() * 255 >> 1;
+    var b = Math.random() * 255 >> 1;
+    return 'rgb('+r+','+g+','+b+')';
+}
 
 function randomBetween(min, max) {
 	return Math.floor(Math.random() * (max - min)) + min;
@@ -72,10 +72,11 @@ function Bomb(time) {
 	}
 }
 
-function Button() {
+function Button(angle) {
 	this.x = canvas.width/3;
 	this.y = canvas.height/2;
 	this.radius =30;
+	this.angle = angle;
 
 	this.update = function() {
 
