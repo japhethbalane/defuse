@@ -12,6 +12,8 @@ var BOMB = new Bomb(time);
 var buttonCount = 5;
 var buttons = [];
 
+var distanceFromCenter = 100;
+
 generateButtons();
 
 function generateButtons() {
@@ -75,8 +77,14 @@ function Bomb(time) {
 function Button(angle) {
 	this.x = canvas.width/3;
 	this.y = canvas.height/2;
-	this.radius =30;
+	this.radius = 30;
 	this.angle = angle;
+
+	this.dx = Math.cos(this.angle) * distanceFromCenter;
+	this.dy = Math.sin(this.angle) * distanceFromCenter;
+
+	this.x += this.dx;
+	this.y += this.dy;
 
 	this.update = function() {
 
