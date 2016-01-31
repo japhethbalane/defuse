@@ -9,10 +9,10 @@ setInterval(world, 30);
 var time = 1000;
 var BOMB = new Bomb(time);
 
-var buttonCount = 5;
+var buttonCount = 50;
 var buttons = [];
 
-var distanceFromCenter = 100;
+var distanceFromCenter = 200;
 
 generateButtons();
 
@@ -56,8 +56,8 @@ function Bomb(time) {
 	this.drawBorder = function() {
 		context.beginPath();
 		context.arc(this.x, this.y, this.radius, Math.PI * 2, false);
-		context.strokeStyle = "#fff"
-		context.stroke();
+		// context.strokeStyle = "#fff"
+		// context.stroke();
 		context.fillStyle = "rgba(200,200,200,1)";
 		context.fill();
 	}
@@ -86,6 +86,8 @@ function Button(angle) {
 	this.x += this.dx;
 	this.y += this.dy;
 
+	this.color = color();
+
 	this.update = function() {
 
 
@@ -95,9 +97,9 @@ function Button(angle) {
 	this.draw = function() {
 		context.beginPath();
 		context.arc(this.x, this.y, this.radius, Math.PI * 2, false);
-		context.strokeStyle = "#fff"
-		context.stroke();
-		context.fillStyle = "rgba(200,200,200,1)";
+		// context.strokeStyle = "#fff"
+		// context.stroke();
+		context.fillStyle = this.color;
 		context.fill();
 
 		return this;
