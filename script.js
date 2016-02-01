@@ -9,17 +9,21 @@ setInterval(world, 30);
 var time = 1000;
 var BOMB = new Bomb(time);
 
-var buttonCount = 50;
+var buttonCount = 10;
 var buttons = [];
 
-var distanceFromCenter = 200;
+var distanceFromCenter = 150;
 
 generateButtons();
 
+for (var i = 0; i < buttons.length; i++) {
+	console.log(buttons[i].angle);
+};
+
 function generateButtons() {
-	var angle = 360 / buttonCount;
-	var div = angle;
-	for (var i = 0; i < buttonCount; i++, angle += div) {
+	var angle = 0;
+	var div = 360 / buttonCount;
+	for (var i = 0; angle < 360; i++, angle += div) {
 		buttons.push(new Button(angle));
 	}
 }
