@@ -12,7 +12,7 @@ var BOMB = new Bomb(time);
 var buttonCount = 10;
 var buttons = [];
 
-var distanceFromCenter = 150;
+var distanceFromCenter = 200;
 
 generateButtons();
 
@@ -79,7 +79,7 @@ function Bomb(time) {
 }
 
 function Button(angle) {
-	this.x = canvas.width/3;
+	this.x = canvas.width/2;
 	this.y = canvas.height/2;
 	this.radius = 30;
 	this.angle = angle;
@@ -92,6 +92,10 @@ function Button(angle) {
 
 	this.color = color();
 
+	this.drawWire = function() {
+		context.beginPath();
+	}
+
 	this.update = function() {
 
 
@@ -99,6 +103,8 @@ function Button(angle) {
 	}
 
 	this.draw = function() {
+		this.drawWire();
+
 		context.beginPath();
 		context.arc(this.x, this.y, this.radius, Math.PI * 2, false);
 		// context.strokeStyle = "#fff"
