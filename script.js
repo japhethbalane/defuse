@@ -9,7 +9,7 @@ setInterval(world, 30);
 var time = 1000;
 var BOMB = new Bomb(time);
 
-var buttonCount = 10;
+var buttonCount = 15;
 var buttons = [];
 
 var distanceFromCenter = 200;
@@ -81,7 +81,7 @@ function Bomb(time) {
 function Button(angle) {
 	this.x = canvas.width/2;
 	this.y = canvas.height/2;
-	this.radius = 30;
+	this.radius = 20;
 	this.angle = angle;
 
 	this.dx = Math.cos(this.angle) * distanceFromCenter;
